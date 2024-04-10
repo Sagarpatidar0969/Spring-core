@@ -1,0 +1,18 @@
+package com.rays.test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.rays.service.UserServiceInt;
+
+@Component
+public class TestUserService {
+	
+		@Autowired
+		public UserServiceInt service= null;
+		
+		public static void main(String[] args) {
+		
+	}
+
+}

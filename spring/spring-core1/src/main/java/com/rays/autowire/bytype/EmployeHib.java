@@ -1,0 +1,12 @@
+package com.rays.autowire.bytype;
+
+public class EmployeHib implements EmployeDao{
+
+	public void intface() {
+		String a = "sagar";
+		String b = "patidar";
+		String c = a.concat(b);
+		System.out.println("my name is -------" + c);
+		
+	}
+}

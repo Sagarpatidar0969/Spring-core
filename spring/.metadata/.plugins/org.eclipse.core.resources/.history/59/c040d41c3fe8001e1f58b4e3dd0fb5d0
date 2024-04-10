@@ -1,0 +1,14 @@
+package com.rays.autowire.bytype;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class EmployeMain {
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new  ClassPathXmlApplicationContext("Autowire-type-Employe.xml");
+			
+		  EmployeService emp =   context.getBean(EmployeService.class);
+	}
+
+}

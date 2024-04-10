@@ -1,0 +1,22 @@
+@Service
+public class UserServiceImpl implements UserServiceInt {
+
+	@Autowired
+	private UserDAOInt dao = null;
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public long add(UserDTO dto) {
+		long pk = dao.add(dto);
+		return pk;
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void update(UserDTO dto) {
+		dao.update(dto);
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public UserDTO delete(long id) {
+		UserDTO deletedUser = dao.delete(id);
+		return deletedUser;
+	}
