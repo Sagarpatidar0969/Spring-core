@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- DataSource bean definition -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/your_database_name" />
+        <property name="username" value="your_username" />
+        <property name="password" value="your_password" />
+    </bean>
+
+    <!-- UserDAOJDBCImpl bean definition -->
+    <bean id="userDAO" class="com.rays.dao.UserDAOJDBCImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- UserServiceInt bean definition -->
+    <bean id="userService" class="com.rays.service.UserServiceImpl">
+        <property name="dao" ref="userDAO" />
+    </bean>
+
+    <!-- TestUserService bean definition -->
+     <bean id="testUserService" class="com.rays.test.TestUserService">
+        <property name="service" ref="userService" />
+    </bean>
+  
+
+</beans>
